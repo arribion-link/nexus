@@ -1,0 +1,714 @@
+/* ==========================================================================
+   1. VARIABLES & GLOBAL STYLES
+   ========================================================================== */
+
+:root {
+    --primary-color: #0d6efd;
+    /* A modern, friendly blue */
+    --secondary-color: #6c757d;
+    /* A soft grey for secondary text */
+    --dark-color: #212529;
+    /* For headings and primary text */
+    --bg-color: #ffffff;
+    /* White background */
+    --surface-color: #f8f9fa;
+    /* A very light grey for section backgrounds */
+    --border-color: #dee2e6;
+    --white: #ffffff;
+    --font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    background-color: var(--bg-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 4rem 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+
+header {
+    background-color: var(--white);
+    padding: 1rem;
+    position: fixed;
+    /* For the mobile menu overlay */
+    top: 0;
+    left: -100%;
+    /* Hidden by default */
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: left 0.4s ease-in-out;
+    z-index: 1000;
+}
+
+header.nav-open {
+    left: 0;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+}
+
+.nav-bar ul {
+    width: 100%;
+}
+
+.nav-bar li {
+    margin-bottom: 1rem;
+}
+
+.nav-bar a {
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 0.5rem 0;
+    display: block;
+}
+
+.nav-bar button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Mobile Menu Toggle Icons */
+.fa-bars,
+.fa-xmark {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    color: var(--dark-color);
+}
+
+.fa-xmark {
+    display: none;
+}
+
+/* Hide close icon by default */
+
+/* ==========================================================================
+   3. HERO SECTION (intro-section)
+   ========================================================================== */
+
+.intro-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://img.freepik.com/free-photo/analog-landscape-city-with-buildings_23-2149661456.jpg?uid=R186930602&ga=GA1.1.905425991.1750525316&semt=ais_hybrid&w=740);
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    margin: 0;
+    border-radius: 0;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.cta-content h1 {
+    color: var(--white);
+    font-size: 2.8rem;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.cta-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+.cta-btn:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
+}
+
+/* ==========================================================================
+   4. TRUSTED MANAGER SECTION (section-two)
+   ========================================================================== */
+.section-two {
+    background-color: var(--surface-color);
+}
+
+.trust-stats {
+    margin-top: 3rem;
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.stat-cards .card {
+    background-color: var(--white);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-figure {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-description {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.stat-backed .section-two-img {
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   5. PROPERTY SOLUTIONS SECTION (section-three)
+   ========================================================================== */
+
+.solution-n-thumbnails {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.solution-n-thumbnails-cards {
+    position: relative;
+    /* For the overlay text */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-three-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.solution-n-thumbnails-cards:hover .section-three-img {
+    transform: scale(1.05);
+}
+
+.solution-n-thumbnails-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: var(--white);
+}
+
+/* You can add h3/p tags inside this div for text */
+
+
+/* ==========================================================================
+   6. INTERNATIONAL NETWORK SECTION (section-four)
+   ========================================================================== */
+
+.section-four {
+    position: relative;
+    height: 70vh;
+    background-image: url(https://img.freepik.com/free-vector/minimal-world-map-isolated-white-background-with-shadow_1017-42608.jpg?uid=R186930602&ga=GA1.1.905425991.1750525316&semt=ais_hybrid&w=740);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3rem;
+}
+
+.section-four h1,
+.section-four p {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.map-point-a,
+.map-point-b,
+.map-point-c,
+.map-point-d,
+.map-point-e,
+.map-point-f {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.7);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+}
+
+/* Approximate positions for mobile */
+.map-point-a {
+    top: 35%;
+    left: 20%;
+}
+
+.map-point-b {
+    top: 40%;
+    left: 48%;
+    animation-delay: 0.2s;
+}
+
+.map-point-c {
+    top: 25%;
+    left: 52%;
+    animation-delay: 0.4s;
+}
+
+.map-point-d {
+    top: 55%;
+    left: 75%;
+    animation-delay: 0.6s;
+}
+
+.map-point-e {
+    top: 70%;
+    left: 55%;
+    animation-delay: 0.8s;
+}
+
+.map-point-f {
+    top: 65%;
+    left: 15%;
+    animation-delay: 1.0s;
+}
+
+
+/* ==========================================================================
+   7. LATEST TRENDS SECTION
+   ========================================================================== */
+
+.discover-trend-img {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   8. PRICING SECTION
+   ========================================================================== */
+.Pricing {
+    background-color: var(--surface-color);
+}
+
+.subscription-container {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.subscription-card {
+    background-color: var(--white);
+    padding: 2.5rem 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subscription-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.subscription-card h4 {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subscription-card h2 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+.subscription-card h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.subscription-card ul {
+    margin-bottom: 2rem;
+}
+
+.subscription-card li {
+    margin-bottom: 0.75rem;
+    color: var(--secondary-color);
+}
+
+.subscription-card button {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    width: 80%;
+}
+
+.subscription-card button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   9. TESTIMONIALS SECTION
+   ========================================================================== */
+
+.profile-card-container {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.profile-card {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    border: 4px solid var(--white);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card h4 {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.stars {
+    color: #ffc107;
+}
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
+footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 4rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+footer h1,
+footer p {
+    color: var(--white);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 3rem 0;
+}
+
+footer .logo {
+    margin-bottom: 0.5rem;
+}
+
+footer input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 300px;
+    color: var(--white);
+    margin-top: 1rem;
+}
+
+footer input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.copyright p {
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+/* ==========================================================================
+   11. DESKTOP & TABLET STYLES (min-width: 768px)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    section {
+        padding: 5rem 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    /* --- Desktop Navigation --- */
+    .fa-bars,
+    .fa-xmark {
+        display: none;
+    }
+
+    /* Hide mobile icons */
+
+    header {
+        /* Reset mobile overlay styles */
+        position: sticky;
+        left: 0;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 0 2rem;
+    }
+
+    .nav-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    .nav-bar .logo {
+        margin: 0;
+    }
+
+    .nav-bar ul {
+        display: flex;
+        align-items: center;
+        width: auto;
+    }
+
+    .nav-bar li {
+        margin: 0 0 0 1.5rem;
+    }
+
+    .nav-bar button {
+        width: auto;
+        margin: 0;
+    }
+
+    /* --- Section Two --- */
+    .trust-stats {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .stat-cards {
+        order: 1;
+        /* Puts cards on the left */
+        flex-basis: 50%;
+    }
+
+    .stat-backed {
+        order: 2;
+        /* Puts image/text on the right */
+        flex-basis: 50%;
+    }
+
+    /* --- Section Three --- */
+    .solution-n-thumbnails {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .solution-n-thumbnails>div:first-child {
+        /* The large card container */
+        flex: 1.5;
+    }
+
+    .section-three-right-grid {
+        /* The container for the 3 small cards */
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* --- Trends / Pricing / Testimonials --- */
+    .section-five>div>div,
+    /* Trends */
+    .subscription-container,
+    /* Pricing */
+    .profile-card-container
+
+    /* Testimonials */
+        {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* ==========================================================================
+   12. LARGE DESKTOP STYLES (min-width: 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    :root {
+        font-size: 16px;
+    }
+
+    /* Reset base font size */
+    section {
+        padding: 6rem 3rem;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .trust-stats {
+        gap: 5rem;
+    }
+
+    .stat-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-bar li {
+        margin: 0 0 0 2rem;
+    }
+}
